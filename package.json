@@ -43,10 +43,11 @@
           ]
         }
       ],
-      "icon": null
+      "icon": "build/icon.png"
     },
     "win": {
       "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+      "icon": "build/icon.png",
       "target": [
         {
           "target": "nsis",
@@ -63,6 +64,7 @@
       "shortcutName": "Kafka Tool"
     },
     "linux": {
+      "icon": "build/icon.png",
       "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
