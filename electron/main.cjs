@@ -28,11 +28,12 @@ function createWindow() {
         },
     });
 
-    // In development, load from Vite dev server
-    if (process.env.NODE_ENV !== 'production') {
-        mainWindow.loadURL('http://localhost:5173');
-    } else {
+    // In production, load the built HTML file
+    if (app.isPackaged) {
         mainWindow.loadFile(path.join(__dirname, '..', 'dist', 'index.html'));
+    } else {
+        // In development, load from Vite dev server
+        mainWindow.loadURL('http://localhost:5173');
     }
 }
 
