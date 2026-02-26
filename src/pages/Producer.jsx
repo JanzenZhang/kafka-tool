@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Button, Input, Select, TextArea, Badge } from '../components/UI';
 import { useToast } from '../components/Toast';
+import SearchableSelect from '../components/SearchableSelect';
 
 export default function Producer() {
     const [connections, setConnections] = useState([]);
@@ -164,8 +165,8 @@ export default function Producer() {
                                     <button
                                         onClick={() => setUseCustomTopic(!useCustomTopic)}
                                         className={`text-xs px-2 py-1 rounded transition-smooth ${useCustomTopic
-                                                ? 'bg-accent/15 text-accent'
-                                                : 'text-gray-500 hover:text-gray-300'
+                                            ? 'bg-accent/15 text-accent'
+                                            : 'text-gray-500 hover:text-gray-300'
                                             }`}
                                     >
                                         {useCustomTopic ? 'Use dropdown' : 'Custom topic'}
@@ -192,11 +193,12 @@ export default function Producer() {
                                     onChange={(e) => setCustomTopic(e.target.value)}
                                 />
                             ) : (
-                                <Select
-                                    placeholder="Select a topic..."
+                                <SearchableSelect
+                                    placeholder={loadingTopics ? 'Loading topics...' : 'Search a topic...'}
                                     value={topic}
-                                    onChange={(e) => setTopic(e.target.value)}
+                                    onChange={setTopic}
                                     options={topics.map((t) => ({ value: t, label: t }))}
+                                    disabled={!selectedConn || loadingTopics}
                                 />
                             )}
                         </div>

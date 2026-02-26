@@ -13,6 +13,7 @@ import {
 import { Button, Input, Select, Badge } from '../components/UI';
 import { useToast } from '../components/Toast';
 import DateTimePicker from '../components/DateTimePicker';
+import SearchableSelect from '../components/SearchableSelect';
 
 export default function Consumer() {
     const [connections, setConnections] = useState([]);
@@ -255,11 +256,12 @@ export default function Consumer() {
                                     </button>
                                 )}
                             </div>
-                            <Select
-                                placeholder="Select a topic..."
+                            <SearchableSelect
+                                placeholder={loadingTopics ? 'Loading topics...' : 'Search a topic...'}
                                 value={topic}
-                                onChange={(e) => setTopic(e.target.value)}
+                                onChange={setTopic}
                                 options={topics.map((t) => ({ value: t, label: t }))}
+                                disabled={!selectedConn || loadingTopics}
                             />
                         </div>
                     </div>
