@@ -36,6 +36,11 @@ function createWindow() {
         // In development, load from Vite dev server
         mainWindow.loadURL('http://localhost:5173');
     }
+
+    // On macOS, set the dock icon explicitly for local development
+    if (process.platform === 'darwin' && !app.isPackaged) {
+        app.dock.setIcon(path.join(__dirname, '../build/icon.png'));
+    }
 }
 
 // ──── Connection IPC Handlers ────
