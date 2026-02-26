@@ -3,6 +3,7 @@ node_modules/
 
 # Build output
 dist/
+release/
 
 # Kafka local installation
 scripts/kafka_2.13-*/
