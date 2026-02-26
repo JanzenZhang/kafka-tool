@@ -32,7 +32,7 @@ export default function SearchableSelect({
     const selectedOption = options.find(opt => opt.value === value);
 
     return (
-        <div className={`relative ${className}`} ref={containerRef}>
+        <div className={`relative ${isOpen ? 'z-[100]' : ''} ${className}`} ref={containerRef}>
             {/* Trigger Button */}
             <button
                 type="button"
@@ -51,7 +51,7 @@ export default function SearchableSelect({
 
             {/* Dropdown Menu */}
             {isOpen && (
-                <div className="absolute z-50 w-full mt-1 bg-surface-secondary border border-border rounded-lg shadow-xl overflow-hidden animate-fade-in">
+                <div className="absolute z-50 w-full mt-1 bg-surface-secondary border border-border rounded-lg shadow-xl overflow-hidden animate-fade-in shadow-black/50">
                     {/* Search Input */}
                     <div className="p-2 border-b border-border relative">
                         <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
