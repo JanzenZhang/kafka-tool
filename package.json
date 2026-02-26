@@ -75,7 +75,8 @@
           ]
         }
       ],
-      "category": "Development"
+      "category": "Development",
+      "maintainer": "JanzenZhang"
     }
   },
   "dependencies": {
