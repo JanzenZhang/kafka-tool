@@ -132,7 +132,7 @@ export default function Producer() {
             <div className="flex-1 overflow-y-auto px-8 pb-8">
                 <div className="max-w-2xl space-y-6">
                     {/* Cluster Selection */}
-                    <div className="glass rounded-xl p-5 space-y-4">
+                    <div className="glass rounded-xl p-5 space-y-4 relative z-10">
                         <div className="flex items-center gap-2 mb-1">
                             <MessageSquare size={16} className="text-accent" />
                             <h2 className="text-sm font-semibold text-gray-200">

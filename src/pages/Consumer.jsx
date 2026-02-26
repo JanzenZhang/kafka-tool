@@ -187,7 +187,7 @@ export default function Consumer() {
 
             {/* Controls */}
             <div className="px-8 pb-4">
-                <div className="glass rounded-xl p-5">
+                <div className="glass rounded-xl p-5 relative z-10">
                     {/* Mode Toggle */}
                     <div className="flex items-center gap-2 mb-4">
                         <span className="text-xs font-medium text-gray-500 mr-1">Mode:</span>
