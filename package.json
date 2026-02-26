@@ -28,6 +28,7 @@
     ],
     "mac": {
       "category": "public.app-category.developer-tools",
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
           "target": "dmg",
@@ -45,6 +46,7 @@
       "icon": null
     },
     "win": {
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
           "target": "nsis",
@@ -61,6 +63,7 @@
       "shortcutName": "Kafka Tool"
     },
     "linux": {
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
           "target": "AppImage",
