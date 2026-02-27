@@ -1,6 +1,6 @@
 {
   "name": "kafka-tool",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "Cross-platform Kafka Desktop GUI Tool",
   "type": "module",
   "main": "electron/main.cjs",
