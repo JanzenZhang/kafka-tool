@@ -26,7 +26,13 @@ class KafkaService {
                 username: connConfig.username || '',
                 password: connConfig.password || '',
             };
-            config.ssl = connConfig.ssl !== false;
+        }
+
+        if (connConfig.ssl !== undefined) {
+            config.ssl = connConfig.ssl;
+        } else if (connConfig.authType === 'SASL_PLAIN') {
+            // Default to true for SASL to maintain backward compatibility
+            config.ssl = true;
         }
 
         return config;

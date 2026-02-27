@@ -23,6 +23,7 @@ const EMPTY_FORM = {
     authType: 'NONE',
     username: '',
     password: '',
+    ssl: false,
 };
 
 export default function ConnectionManager() {
@@ -53,7 +54,13 @@ export default function ConnectionManager() {
     };
 
     const openEditModal = (conn) => {
-        setForm({ ...conn });
+        setForm({
+            ...conn,
+            // If ssl is undefined (old config), default to true if SASL, else false
+            ssl: conn.ssl !== undefined
+                ? conn.ssl
+                : conn.authType === 'SASL_PLAIN',
+        });
         setEditing(true);
         setShowModal(true);
     };
@@ -344,6 +351,26 @@ export default function ConnectionManager() {
                             />
                         </div>
                     )}
+
+                    {/* SSL/TLS Toggle */}
+                    <div className="flex items-center gap-2">
+                        <label className="text-sm font-medium text-gray-300">
+                            Enable SSL/TLS
+                        </label>
+                        <button
+                            type="button"
+                            role="switch"
+                            aria-checked={form.ssl}
+                            onClick={() => setForm((f) => ({ ...f, ssl: !f.ssl }))}
+                            className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50 ${form.ssl ? 'bg-accent' : 'bg-surface-tertiary border border-border'
+                                }`}
+                        >
+                            <span
+                                className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${form.ssl ? 'translate-x-5' : 'translate-x-1'
+                                    }`}
+                            />
+                        </button>
+                    </div>
 
                     <div className="flex justify-end gap-3 pt-4 border-t border-border">
                         <Button
