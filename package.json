@@ -87,6 +87,7 @@
   "dependencies": {
     "electron-store": "^8.1.0",
     "kafkajs": "^2.2.4",
+    "playwright": "^1.58.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
